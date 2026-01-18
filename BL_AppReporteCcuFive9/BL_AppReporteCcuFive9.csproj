@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67A03EA4-D7FD-4703-88BC-B0C104C9F459}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BL_AppReporteCcuFive9</RootNamespace>
+    <AssemblyName>BL_AppReporteCcuFive9</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BLToolkit.3">
+      <HintPath>..\..\..\..\Tecnologia\RepositorioDesarrollo\BLToolkit.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=33.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.33.1.0\lib\net48\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\Five9Services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AtentoFW2008Context.cs" />
+    <Compile Include="DAL\DB_CCU_CONTEXT.cs" />
+    <Compile Include="ManagerFive9.cs" />
+    <Compile Include="ManagerReporte.cs" />
+    <Compile Include="ObjectModel\AuthHeaderInserter.cs" />
+    <Compile Include="ObjectModel\CallLogFive9.cs" />
+    <Compile Include="ObjectModel\ConfigFive9.cs" />
+    <Compile Include="ObjectModel\CredencialUploadFile.cs" />
+    <Compile Include="ObjectModel\FiltroReporteCcuFive9.cs" />
+    <Compile Include="ObjectModel\t24_ConfiguracionesKey.cs" />
+    <Compile Include="ObjectModel\Tracking.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addDispositionsToCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addDNISToCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addListsToCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addNumbersToDncResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addPromptTTSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addPromptWavInlineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addPromptWavResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addRecordToListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addRecordToListSimpleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addSkillAudioFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addSkillsToCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addToListCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addToListFtpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.addToListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.adminConfigTranslation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.agentGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.asyncAddRecordsToListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.asyncDeleteRecordsFromListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.asyncUpdateCampaignDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.asyncUpdateCrmRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.autodialCampaign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.callVariable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.callVariablesGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.campaign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.campaignProfileFilter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.campaignProfileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.campaignState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.campaignStrategy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.checkDncForNumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.contactField.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.contactsLookupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createAgentGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createAutodialCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createCallVariableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createCallVariablesGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createCampaignProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createContactFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createDispositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createInboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createIVRScriptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createOutboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createReasonCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createSkillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createSpeedDialNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createUserProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.createWebConnectorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.crmImportResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteAgentGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteAllFromListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteCallVariableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteCallVariablesGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteCampaignProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteContactFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromContactsCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromContactsFtpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromListCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromListFtpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteFromListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteIVRScriptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteLanguagePromptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deletePromptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteReasonCodeByTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteReasonCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteRecordFromListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteSkillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteUserProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.deleteWebConnectorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.dialingRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.disposition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.dispositionCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.dispositionsImportResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.forceStopCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getAgentGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getAgentGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getApiVersionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getAutodialCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getAvailableLocalesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCallCountersStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCallVariableGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCallVariablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignDNISListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignProfileDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignProfileFilterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCampaignStrategiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getConfigurationTranslationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getContactFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getContactRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getCrmImportResultResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getDialingRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getDispositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getDispositionsImportResultResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getDNISListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getInboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getIvrIconsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getIvrScriptOwnershipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getIVRScriptsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getListImportResultResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getListsForCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getListsInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getLocaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getOutboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getPromptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getPromptsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getReasonCodeByTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getReasonCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getReportResultCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getReportResultResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillAudioFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillsInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSkillVoicemailGreetingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getSpeedDialNumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUserGeneralInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUserInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUserProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUserProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUsersGeneralInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUsersInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getUserVoicemailGreetingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getVCCConfigurationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.getWebConnectorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.importIdentifier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.inboundCampaign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.isImportRunningResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.isReportRunningResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.ivrIcons.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.ivrScriptDef.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.ivrScriptOwnership.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.limitTimeoutState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.listImportResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.listInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.listState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyAgentGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyAutodialCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCallVariableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCallVariablesGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCampaignListsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCampaignProfileCrmCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCampaignProfileDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCampaignProfileFilterOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyCampaignProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyContactFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyDispositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyInboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyIVRScriptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyOutboundCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyPromptTTSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyPromptWavInlineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyPromptWavResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyReasonCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifySkillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyUserCannedReportsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyUserProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyUserProfileSkillsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyUserProfileUserListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyVCCConfigurationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.modifyWebConnectorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.outboundCampaign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.promptInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.reasonCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeDispositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeDispositionsFromCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeDNISFromCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeIvrIconsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeIvrScriptOwnershipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeListsFromCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeNumbersFromDncResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeSkillAudioFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeSkillsFromCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.removeSpeedDialNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.renameCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.renameDispositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.reportRowData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.resetCampaignDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.resetCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.resetListPositionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.runReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setCampaignStrategiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setDefaultIVRScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setDialingRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setIvrIconsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setIvrScriptOwnershipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setLocaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setSkillVoicemailGreetingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.setUserVoicemailGreetingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.skill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.skillInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.speedDialNumber.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.startCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.stopCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateConfigurationTranslationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateContactsCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateContactsFtpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateCrmRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateDispositionsCsvResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateDispositionsFtpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.updateDispositionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userGeneralInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userProfile.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userSkillAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userSkillModifyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.userSkillRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.vccConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.versions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\BL_AppReporteCcuFive9.Five9Services.webConnector.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Five9Services\WsAdminService.wsdl" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Five9Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Five9Services\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Five9Services\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Five9Services\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,49 @@
+﻿.error_msg, .success_msg, .info_msg, .warning_msg{
+ width: 500px;
+ height: auto;
+ margin: 0px;
+ padding: 2px 4px;
+ font: bold 13px Arial,sans-serif;
+ padding: 7px 0px 5px 5px;
+ -moz-border-radius: 6px 6px 6px 6px;
+ }
+ 
+.error_msg{
+ border:solid 1px #FBD3C6;
+ background:#FDE4E1;
+ color: #B10009;
+ background: url("icon/error.png") no-repeat;
+ }
+ 
+.success_msg{
+ border: solid 1px #ADDE5C;
+ background: #DFF2BF;
+ color: #008000;
+ background: url("icon/success.png") no-repeat;
+ }
+ 
+.info_msg{
+ border:solid 1px #46B6EC;
+ background:#BDE5F8;
+ color: #00529B;
+ background: url("icon/info.png") no-repeat;
+ }
+ 
+.warning_msg{
+ border:solid 1px #FDDD5B;
+ background:#FEEFB3;
+ color: #9F6000;
+ background: url("icon/warning.png") no-repeat;
+ }
+ 
+.msg_image{
+ width: 16px;
+ height: 16px;
+ float: left;
+ margin: 0px 7px;
+ }
+/**********************************************************************/
+/*.error_msg #image{ background: url("icon/error.png") no-repeat;}
+.success_msg #image{ background: url("icon/success.png") no-repeat;}
+.info_msg #image{ background: url("icon/info.png") no-repeat;}
+.warning_msg #image{background: url("icon/warning.png") no-repeat;}*/

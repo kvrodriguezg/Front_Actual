@@ -1,0 +1,17 @@
+﻿body
+{
+	font: normal 12px Arial;
+	background-color: #E0EEF9;
+}
+.celdaMargenTop {    
+    padding-top:10px;    
+}
+
+.right-align{
+  float: right;
+  
+}
+
+.panel-title {
+    font-size:14px;
+}

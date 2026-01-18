@@ -1,0 +1,120 @@
+﻿body, html
+{
+    height: 100%;
+    padding: 0;
+    margin: 0;            
+}
+div.wrapper1
+{
+}
+div.wrapper1 div.leftPaneHeader
+{
+    background: url('Images/leftPaneHeader.gif') repeat-x;
+    border-top: solid 4px #9eb6ce;
+    border-bottom: solid 1px #9eb6ce;
+    height: 22px;
+}
+div.footer
+{
+    background: url('Images/footer.gif') repeat-x;
+    height: 30px;            
+    clear: both;
+    display: none;
+}
+.main-splitter
+{
+    width: auto !important;
+}
+#divLogo
+{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.cabecera
+{
+	border-color: #fff;
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 9pt;
+	color: #27413e;
+	font-weight: bold;
+}
+.titulo
+{
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 9pt;
+	color: #416089;
+	font-weight: bold;
+}
+.supertitulo
+{
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 12pt;
+	color: #416089;
+	font-weight: bold;
+}
+.tituloblanco
+{
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 9pt;
+	color: #fff;
+}
+
+.plainlink
+{
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 8pt;
+	color: #567db0;
+}
+.plaintext
+{
+	font-family: 'Trebuchet MS' , Verdana;
+	font-size: 8pt;
+	color: #595959;
+}
+
+.contenedor
+{
+	border: solid 1px #6693cc;
+}
+
+.button
+{
+	border: 1px solid;
+	border-color: #4a95c9;
+	background: url(../../images/qsfButton.gif) repeat-x;
+	font-size: 11px;
+	color: #334B6C;
+	padding: 0;	
+}
+.fondo
+{
+	background: url(../../images/backgroundc.jpg) fixed repeat-x right top;
+}
+.fondob
+{
+	background: url(../../images/backgroundb.jpg) fixed repeat-x right top;
+}
+#divContieneTitulo
+{
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	width: 90%;
+	max-width: 1200px;
+	margin-left: -45%;
+	font: bold 11px Tahoma;
+	color: #103272;
+	z-index: 999;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	background-color: #ABC1DE;
+	background: url('../../../images/fnd_Titulos.png') repeat-x;
+}
+
+#divContieneTitulo
+{
+	box-shadow: 1px 1px 2px #333;
+}
