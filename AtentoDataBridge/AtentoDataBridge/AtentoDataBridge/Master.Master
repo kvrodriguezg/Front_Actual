@@ -1,0 +1,249 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.Master.cs" Inherits="AtentoDataBridge.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+    <title></title>
+
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/bootstrap-3.3.7/css/bootstrap.css") %>' rel="stylesheet" />
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/Ionicons/css/ionicons.min.css") %>' rel="stylesheet" />
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet" />
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/Bootstrap-Dialog/css/bootstrap-dialog.min.css") %>' rel="stylesheet" />
+
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/css/AdminLTE.css") %>' rel="stylesheet" />
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/css/skins/_all-skins.css") %>' rel="stylesheet" />
+
+    <!-- bootstrapToggle -->
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/BootstrapToggle/css/bootstrap-toggle.css") %>' rel="stylesheet" />
+
+    <!-- Select2 -->
+    <link href='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/select2/dist/css/select2.min.css") %>' rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/bootstrap-3.3.7/js/html5shiv.min.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/bootstrap-3.3.7/js/respond.min.js") %>'></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder ID="Csshead" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- jQuery 3 -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/jquery/dist/jquery.min.js") %>'></script>
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/bootstrap-3.3.7/js/jquery-ui.min.js") %>'></script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/bootstrap-3.3.7/js/bootstrap.min.js") %>'></script>
+    <!-- SlimScroll -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js") %>'></script>
+    <!-- FastClick -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/fastclick/lib/fastclick.js") %>'></script>
+    <!-- Bootstrap-Dialog -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/Bootstrap-Dialog/js/bootstrap-dialog.min.js") %>'></script>
+
+    <!-- AdminLTE App -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/js/adminlte.min.js") %>'></script>
+
+    <!-- bootstrapToggle -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/Bootstrap/BootstrapToggle/js/bootstrap-toggle.js") %>'></script>
+
+    <!-- Select2 -->
+    <script src='<%= Page.ResolveUrl("~/App_Themes/TemaCentral/AdminLte/bower_components/select2/dist/js/select2.full.min.js") %>'></script>
+
+    <asp:ContentPlaceHolder ID="Jshead" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        hr {
+            display: block !important;
+            height: 1px !important;
+            border: 0 !important;
+            border-top: 1px solid #337ab7 !important;
+            margin: 1em 0 !important;
+            padding: 0 !important;
+        }
+
+        .modalInfo {
+            background-color: #337ab7 !important;
+            color: white;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('.btnLoading').on('click', function () {
+                var $this = $(this);
+                $this.button('loading');
+            });
+        });
+
+        function resetLoadingButton() {
+            $('.btnLoading').button('reset');
+        }
+
+        /*         
+            Download File
+            Se define un Generic Handler "DownloadFile.ashx" para descarga de archivos:
+            Forma de uso :
+            1 - utilizar la funcion javascript definida en la pagina Master.Master
+                <button type="button" id="btnDown1" onclick="downloadFile(id numerico del archivo en la DB)">Descarga 1</button>
+
+            2- <a href='URL WebApp/DownloadFile.ashx?fileId= id numerico del archivo en la DB' > Texto </a>
+         */
+
+        function downloadFile(id) {
+            var urlToDownload = '<%= Page.ResolveUrl("~/DownloadFile.ashx") %>'; //"DownloadFile.ashx?fileId=" + id;
+            urlToDownload = urlToDownload + "?fileId=" + id;
+
+            if (urlExists(urlToDownload)) {
+                window.location = urlToDownload;
+            } else {
+                alert('El archivo no existe.');
+            }
+        }
+        function urlExists(url) {
+            var http = new XMLHttpRequest();
+            http.open('HEAD', url, false);
+            http.send();
+            return http.status != 404;
+        }
+
+        //Fin Download file
+
+    </script>
+
+
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        
+
+        <script>
+            $(document).ready(function () {
+                $('.btnLoadingWithValidation').on('click', function () {
+                    if (Page_ClientValidate("")) {
+                        var $this = $(control);
+                        $this.button('loading');
+                        return true;
+                    }
+                    else {
+                        $(control).button('reset');
+                        Page_BlockSubmit = false;//no deja la paginma bloqueada para otros postbacks que surgan desde otros controles sin validacion.
+                        return false;
+                    }
+                });
+            });
+
+            function ValidationWithValidationGroup(validationGroup, control) {
+                if (Page_ClientValidate(validationGroup)) {
+                    var $this = $(control);
+                    $this.button('loading');
+                    return true;
+                }
+                else {
+                    $(control).button('reset');
+                    Page_BlockSubmit = false;//no deja la paginma bloqueada para otros postbacks que surgan desde otros controles sin validacion.
+                    return false;
+                }
+            }
+
+            function ValidationWithOutValidationGroup(control) {
+                if (Page_ClientValidate("")) {
+                    var $this = $(control);
+                    $this.button('loading');
+                    return true;
+                }
+                else {
+                    $(control).button('reset');
+                    Page_BlockSubmit = false;//no deja la paginma bloqueada para otros postbacks que surgan desde otros controles sin validacion.
+                    return false;
+                }
+            }
+
+
+            //Se usa para aplicar clase css has-error de bootstrap en los controles que esten dentro de un div con la clase form-group.
+            //Los controles tipo Required field validator deben usar la clase css 'help-block', 
+            //para que tengan el mismo estilo que el resto de controles con error. EJ CssClass="help-block"
+            function extendedValidatorUpdateDisplay(obj) {
+                try {
+                    // call the original method to update the state of the controls
+                    if (typeof originalValidatorUpdateDisplay === "function") {
+                        originalValidatorUpdateDisplay(obj);
+                    }
+
+                    // Get the state of the control (valid or invalid)
+                    // and add or remove the class has-error
+                    var control = document.getElementById(obj.controltovalidate);
+                    if (control) {
+                        var isValid = true;
+                        for (var i = 0; i < control.Validators.length; i += 1) {
+                            if (!control.Validators[i].isvalid) {
+                                isValid = false;
+                                break;
+                            }
+                        }
+
+                        $(control).closest(".form-group").toggleClass("has-error", !isValid);
+                    }
+                }
+                catch (error) { }
+            }
+
+            // Replace the method ValidatorUpdateDisplay by our method
+            var originalValidatorUpdateDisplay = window.ValidatorUpdateDisplay;
+            window.ValidatorUpdateDisplay = extendedValidatorUpdateDisplay;
+        </script>
+
+        <script type="text/javascript">
+            //Para que se ejcuten los scripts cuando se usa UpdatePanel.
+            //Events being defined by the PageRequestManager
+            Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+            //These functions will be handled by the cooresponding events declared above.
+            function BeginRequestHandler(sender, args) {
+
+
+            }
+            function EndRequestHandler(sender, args) {
+                resetLoadingButton();
+            }
+
+            function resetLoadingButton() {
+                $('.btnLoading').button('reset');
+                $('.btnLoadingWithValidation').button('reset');
+            }
+        </script>
+
+        <div class="wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+    </form>
+</body>
+<%--<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>--%>
+</html>
